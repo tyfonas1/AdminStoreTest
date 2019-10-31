@@ -5,6 +5,7 @@ import {Nav , Tabs  } from 'react-bootstrap';
 import Tab from 'react-bootstrap/Tab'
 import Orders from './Orders';
 import NewProduct from './NewProduct';
+import { IoIosKeypad } from "react-icons/io";
 export default class Products extends Component {
     render() {
         const photostyle = {
@@ -17,8 +18,8 @@ export default class Products extends Component {
         
         return (
             <div>
-              <h1>Products</h1>
-                {/* <button type="button" class="btn btn-primary mt-3" >+NEW PRODUCT</button> */}
+              <h1><IoIosKeypad />Products</h1>
+                
                 <Tabs variant="pills" defaultActiveKey="Products" id="uncontrolled-tab-example">
                   
                   <Tab eventKey="Products" title="Products">
