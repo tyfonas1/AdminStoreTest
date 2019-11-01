@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="allwrapper">
       <BrowserRouter>
-        <Route path="/" component={Home} />
+        <Route path="/" component={Home} exact />
         <Route path="/login" component={Login} />
       </BrowserRouter>
     </div>

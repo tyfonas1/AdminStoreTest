@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Form, Button } from "react-bootstrap";
 import Admin from "../Admin";
 
-
 export default class Login extends Component {
   state = {
     username: "",
