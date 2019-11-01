@@ -26,7 +26,30 @@ export default class Products extends Component {
           Products
         </h1>
 
-        
+        <Paper>
+          <Table aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                <TableCell align="center">#</TableCell>
+                <TableCell align="center">SKU</TableCell>
+                <TableCell align="center">Model</TableCell>
+                <TableCell align="center">Manufacturer</TableCell>
+                <TableCell align="center">Photo</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              <TableRow>
+                <TableCell align="center">1</TableCell>
+                <TableCell align="center">1001</TableCell>
+                <TableCell align="center">GTX 1080 TI</TableCell>
+                <TableCell align="center">MSI</TableCell>
+                <TableCell>
+                  <img src={image} style={photostyle} />
+                </TableCell>
+              </TableRow>
+            </TableBody>
+          </Table>
+        </Paper>
 
         {/* <Tabs
           variant="pills"
