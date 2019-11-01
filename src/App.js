@@ -1,30 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Navbar from './components/Navbar.js';
-import Products from './components/Products';
-import Header from './components/Header';
-import {Container , Row , Col} from 'react-bootstrap'
+import React from "react";
+import "./App.css";
+import Login from "./components/Login";
+import Home from "./components/Home";
+import { BrowserRouter, Route } from "react-router-dom";
+
 function App() {
   return (
     <div className="allwrapper">
-    
-    <Container>
-      <Row>
-        <Header/>
-        </Row>
-        <Row>
-    <Col sm>
-      <Navbar />
-    </Col>
-    <Col sm={9}>
-      
-    </Col>
-    </Row>
-  </Container>
-
-  
-  </div>
+      <BrowserRouter>
+        <Route path="/" component={Home} />
+        <Route path="/login" component={Login} />
+      </BrowserRouter>
+    </div>
   );
 }
 
