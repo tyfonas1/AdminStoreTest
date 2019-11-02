@@ -47,6 +47,15 @@ export default class Products extends Component {
                   <img src={image} style={photostyle} />
                 </TableCell>
               </TableRow>
+              <TableRow>
+                <TableCell align="center">1</TableCell>
+                <TableCell align="center">1001</TableCell>
+                <TableCell align="center">GTX 1080 TI</TableCell>
+                <TableCell align="center">MSI</TableCell>
+                <TableCell>
+                  <img src={image} style={photostyle} />
+                </TableCell>
+              </TableRow>
             </TableBody>
           </Table>
         </Paper>

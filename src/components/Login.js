@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 import { Form, Button } from "react-bootstrap";
 import Admin from "../Admin";
-
+import "../App.css";
+import LoginImage from "../images/loginImage.png"
 export default class Login extends Component {
   state = {
     username: "",
     password: "",
     authentication: false
   };
-
+  
   handleChangeUsername = event => {
     this.setState({ username: event.target.value });
   };
@@ -29,11 +30,15 @@ export default class Login extends Component {
   };
 
   render() {
+    
     if (this.state.authentication == true) {
       return <Admin />;
     } else {
       return (
-        <div>
+        <div className="loginbox">
+          <div className="loginform">
+          <img src={LoginImage} className="loginimage"/>
+          <h3>Log In</h3>
           <Form onSubmit={this.handleSubmit}>
             <Form.Group controlId="Username">
               <Form.Label>Username</Form.Label>
@@ -55,13 +60,11 @@ export default class Login extends Component {
                 onChange={this.handleChangePassword}
               />
             </Form.Group>
-            <Form.Group controlId="Remember">
-              <Form.Check type="checkbox" label="Remember me" />
-            </Form.Group>
             <Button variant="primary" type="submit">
               Submit
             </Button>
           </Form>
+          </div>
         </div>
       );
     }
