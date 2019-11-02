@@ -1,76 +1,73 @@
 import React, { Component } from "react";
 import "../App.css";
-import { Table } from "react-bootstrap";
 import { FaPencilAlt, FaFileInvoiceDollar } from "react-icons/fa";
+import Table from "@material-ui/core/Table";
+import {
+  TableBody,
+  TableCell,
+  TableHead,
+  TableRow,
+  Paper
+} from "@material-ui/core";
+
 export default class Orders extends Component {
   render() {
+    const photostyle = {
+      height: "70px",
+      width: "auto",
+      display: "block",
+      margin: "0 auto"
+    };
     return (
       <div>
         <h1>
           <FaFileInvoiceDollar /> / Orders
         </h1>
-        <Table striped bordered hover>
-          <thead>
-            <tr>
-              <th></th>
-              <th>Code</th>
-              <th>Status</th>
-              <th>Amount</th>
-              <th>Payment</th>
-              <th>Shipping</th>
-              <th>Customer</th>
-              <th>Phone</th>
-              <th>Submitted</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <a href="#">
+        <Paper>
+          <Table aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                <TableCell align="center">Edit</TableCell>
+                <TableCell align="center">Code</TableCell>
+                <TableCell align="center">Status</TableCell>
+                <TableCell align="center">Amount</TableCell>
+                <TableCell align="center">Payment</TableCell>
+                <TableCell align="center">Shipping</TableCell>
+                <TableCell align="center">Customer</TableCell>
+                <TableCell align="center">Phone</TableCell>
+                <TableCell align="center">Submitted</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              <TableRow>
+                <TableCell align="center">
                   <FaPencilAlt />
-                </a>
-              </td>
-              <td>A10001</td>
-              <td>Pending</td>
-              <td>180.34 €</td>
-              <td>Paypal</td>
-              <td>Courier</td>
-              <td>Μακης Γκουτζελουδης</td>
-              <td>6947584569</td>
-              <td>31/10/2019</td>
-            </tr>
-            <tr>
-              <td>
-                <a href="#">
+                </TableCell>
+                <TableCell align="center">A10001</TableCell>
+                <TableCell align="center">Pending</TableCell>
+                <TableCell align="center">180.34 €</TableCell>
+                <TableCell align="center">Paypal</TableCell>
+                <TableCell align="center">Courier</TableCell>
+                <TableCell align="center">Μακης Γκουτζελουδης</TableCell>
+                <TableCell align="center">6947584569</TableCell>
+                <TableCell align="center">31/10/2019</TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell align="center">
                   <FaPencilAlt />
-                </a>
-              </td>
-              <td>A10002</td>
-              <td>Pending</td>
-              <td>100.36 €</td>
-              <td>Paypal</td>
-              <td>Παραλαβή απο το κατάστημα</td>
-              <td>Γιώργος Γκουτζελουδης</td>
-              <td>6947554334</td>
-              <td>31/10/2019</td>
-            </tr>
-            <tr>
-              <td>
-                <a href="#">
-                  <FaPencilAlt />
-                </a>
-              </td>
-              <td>A10003</td>
-              <td>Complete</td>
-              <td>32 €</td>
-              <td>Credit Card</td>
-              <td>Παραλαβή απο το κατάστημα</td>
-              <td>Γιάννης Καλησπερόπουλόπουλος</td>
-              <td>6947538934</td>
-              <td>31/10/2019</td>
-            </tr>
-          </tbody>
-        </Table>
+                </TableCell>
+                <TableCell align="center">A10001</TableCell>
+                <TableCell align="center">Pending</TableCell>
+                <TableCell align="center">180.34 €</TableCell>
+                <TableCell align="center">Paypal</TableCell>
+                <TableCell align="center">Courier</TableCell>
+                <TableCell align="center">Μακης Γκουτζελουδης</TableCell>
+                <TableCell align="center">6947584569</TableCell>
+                <TableCell align="center">31/10/2019</TableCell>
+              </TableRow>
+            </TableBody>
+          </Table>
+        </Paper>
       </div>
     );
   }

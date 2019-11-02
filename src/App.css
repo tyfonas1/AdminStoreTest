@@ -38,36 +38,35 @@
   margin-right: auto;
   margin-left: auto;
 }
-.loginform{
+.loginform {
   border: 1px solid rgb(173, 169, 169);
   padding: 20% 10%;
   background-color: rgb(221, 221, 221);
 }
-.loginimage{
-  height:auto;
-  width:50px;
+.loginimage {
+  height: auto;
+  width: 50px;
   display: block;
   margin: auto;
-  
 }
-.loginbox{
+.loginbox {
   margin: 0;
   padding: 0;
   width: 320px;
   height: 420px;
   color: black;
-  background-color:rgb(231, 231, 231);
-  top:50%;
-  left:50%;
+  background-color: rgb(231, 231, 231);
+  top: 50%;
+  left: 50%;
   position: absolute;
-  transform: translate(-50%,-50%);
-  box-sizing:border-box;  
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
 }
-.loginbox h3{
-  color:black;
+.loginbox h3 {
+  color: black;
   text-align: center;
-  margin-top:10px;
+  margin-top: 10px;
 }
-.loginbox Form{
-  margin-top:30px;
+.loginbox form {
+  margin-top: 30px;
 }

@@ -3,13 +3,15 @@ import image from "../images/1.jpg";
 import NewProduct from "./NewProduct";
 import { IoIosKeypad } from "react-icons/io";
 import Table from "@material-ui/core/Table";
-import TableBody from "@material-ui/core/TableBody";
-import TableCell from "@material-ui/core/TableCell";
-import TableHead from "@material-ui/core/TableHead";
-import TableRow from "@material-ui/core/TableRow";
-import Paper from "@material-ui/core/Paper";
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
+import {
+  TableBody,
+  TableCell,
+  TableHead,
+  TableRow,
+  Paper
+} from "@material-ui/core";
+
+
 export default class Products extends Component {
   render() {
     const photostyle = {
