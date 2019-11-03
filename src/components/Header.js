@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-
+import { Grid } from "@material-ui/core";
+import "../App.css";
 export default class Header extends Component {
   render() {
     let date = new Date().getDate();
@@ -7,9 +8,19 @@ export default class Header extends Component {
     let year = new Date().getFullYear();
 
     return (
-      <div class="container-fluid">
-        <div className="header">
-          <div class="row">
+      // <div class="container-fluid">
+      <div className="header">
+        
+        <Grid container spacing={5} maxwidth={1}>
+          <Grid item xs={9}>
+            <h1>Admin panel</h1>
+          </Grid>
+          <Grid item xs={3}>
+            {date}/{month}/{year}
+          </Grid>
+        </Grid>
+
+        {/* <div class="row">
             <div class="col-sm  ">
               <h1>Admin panel</h1>
             </div>
@@ -20,7 +31,7 @@ export default class Header extends Component {
               </h3>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     );
   }

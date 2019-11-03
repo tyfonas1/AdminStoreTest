@@ -2,73 +2,169 @@ import React, { Component } from "react";
 import "../App.css";
 import { FaPencilAlt, FaFileInvoiceDollar } from "react-icons/fa";
 import Table from "@material-ui/core/Table";
+import { makeStyles } from '@material-ui/core/styles';
 import {
   TableBody,
   TableCell,
   TableHead,
   TableRow,
-  Paper
+  Paper,
+  TablePagination
 } from "@material-ui/core";
 
-export default class Orders extends Component {
-  render() {
-    const photostyle = {
-      height: "70px",
-      width: "auto",
-      display: "block",
-      margin: "0 auto"
-    };
-    return (
-      <div>
-        <h1>
-          <FaFileInvoiceDollar /> / Orders
-        </h1>
-        <Paper>
-          <Table aria-label="simple table">
-            <TableHead>
-              <TableRow>
-                <TableCell align="center">Edit</TableCell>
-                <TableCell align="center">Code</TableCell>
-                <TableCell align="center">Status</TableCell>
-                <TableCell align="center">Amount</TableCell>
-                <TableCell align="center">Payment</TableCell>
-                <TableCell align="center">Shipping</TableCell>
-                <TableCell align="center">Customer</TableCell>
-                <TableCell align="center">Phone</TableCell>
-                <TableCell align="center">Submitted</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              <TableRow>
-                <TableCell align="center">
-                  <FaPencilAlt />
-                </TableCell>
-                <TableCell align="center">A10001</TableCell>
-                <TableCell align="center">Pending</TableCell>
-                <TableCell align="center">180.34 €</TableCell>
-                <TableCell align="center">Paypal</TableCell>
-                <TableCell align="center">Courier</TableCell>
-                <TableCell align="center">Μακης Γκουτζελουδης</TableCell>
-                <TableCell align="center">6947584569</TableCell>
-                <TableCell align="center">31/10/2019</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell align="center">
-                  <FaPencilAlt />
-                </TableCell>
-                <TableCell align="center">A10001</TableCell>
-                <TableCell align="center">Pending</TableCell>
-                <TableCell align="center">180.34 €</TableCell>
-                <TableCell align="center">Paypal</TableCell>
-                <TableCell align="center">Courier</TableCell>
-                <TableCell align="center">Μακης Γκουτζελουδης</TableCell>
-                <TableCell align="center">6947584569</TableCell>
-                <TableCell align="center">31/10/2019</TableCell>
-              </TableRow>
-            </TableBody>
-          </Table>
-        </Paper>
-      </div>
-    );
-  }
+
+const columns = [
+  { id: 'edit', label: 'Edit', minWidth: 170 },
+  { id: 'code', label: 'Code', minWidth: 100 },
+  {
+    id: 'status',
+    label: 'Status',
+    minWidth: 170,
+    align: 'right',
+    
+  },
+  {
+    id: 'amount',
+    label: 'Amount',
+    minWidth: 170,
+    align: 'right',
+    
+  },
+  {
+    id: 'payment',
+    label: 'Payment',
+    minWidth: 170,
+    align: 'right',
+    
+  },
+  {
+    id: 'shipping',
+    label: 'Shipping',
+    minWidth: 170,
+    align: 'right',
+    
+  },
+  {
+    id: 'customer',
+    label: 'Customer',
+    minWidth: 170,
+    align: 'right',
+    
+  },
+  {
+    id: 'phone',
+    label: 'Phone',
+    minWidth: 170,
+    align: 'right',
+    
+  },
+  {
+    id: 'submitted',
+    label: 'Submitted',
+    minWidth: 170,
+    align: 'right',
+    
+  },
+];
+
+function createData(edit, code, status, amount , payment , shipping, customer , phone,submitted) {
+  
+  return { edit, code, status, amount , payment , shipping, customer , phone,submitted };
 }
+
+const rows = [
+  createData(<FaPencilAlt />, '1001', "Paid", "130€","Bank", "Courier", "Μακης Γκουτζελουδης", 6984588656, "3/11/2019"),
+  createData(<FaPencilAlt />, '1002', "Paid","130€", "Bank","Pick Up","Μακης Γκουτζελουδης",6984588656,"3/11/2019"),
+  createData(<FaPencilAlt />, '1003', "Paid","130€", "Bank","Courier","Μακης Γκουτζελουδης",6984588656,"3/11/2019"),
+  createData(<FaPencilAlt />, '1004', "Paid","130€", "Bank","Pick Up","Μακης Γκουτζελουδης",6984588656,"3/11/2019"),
+  createData(<FaPencilAlt />, '1005', "Paid","130€","Bank", "Pick Up","Μακης Γκουτζελουδης",6984588656,"3/11/2019"),
+  createData(<FaPencilAlt />, '1006', "Paid","130€", "Bank","Courier","Μακης Γκουτζελουδης",6984588656,"3/11/2019"),
+  createData(<FaPencilAlt />, '1007', "Paid","130€","Bank", "Pick Up","Μακης Γκουτζελουδης",6984588656,"2/11/2019"),
+  createData(<FaPencilAlt />, '1008', "Paid","130€", "Bank","Courier","Μακης Γκουτζελουδης",6984588656,"2/11/2019"),
+  createData(<FaPencilAlt />, '1009',"Paid", "130€", "Bank","Pick Up","Μακης Γκουτζελουδης",6984588656,"2/11/2019"),
+  createData(<FaPencilAlt />, '1010', "Paid","130€", "Bank","Courier","Μακης Γκουτζελουδης",6984588656,"2/11/2019"),
+  createData(<FaPencilAlt />, '1011', "Paid","130€","Bank", "Pick Up","Μακης Γκουτζελουδης",6984588656,"1/11/2019"),
+  createData(<FaPencilAlt />, '1012',"Paid", "130€","Bank", "Pick Up","Μακης Γκουτζελουδης",6984588656,"1/11/2019"),
+  createData(<FaPencilAlt />, '1013',"Paid", "130€", "Bank","Pick Up","Μακης Γκουτζελουδης",6984588656,"1/11/2019"),
+  createData(<FaPencilAlt />, '1014', "Paid","130€", "Bank","Courier","Μακης Γκουτζελουδης",6984588656,"1/11/2019"),
+  createData(<FaPencilAlt />, '1015',"Paid", "130€","Bank", "Courier","Μακης Γκουτζελουδης",6984588656,"1/11/2019"),
+];
+
+const useStyles = makeStyles({
+  root: {
+    width: '100%',
+  },
+  tableWrapper: {
+    maxHeight: 440,
+    overflow: 'auto',
+  },
+});
+
+export default function StickyHeadTable() {
+  const classes = useStyles();
+  const [page, setPage] = React.useState(0);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = event => {
+    setRowsPerPage(+event.target.value);
+    setPage(0);
+  };
+
+  return (
+    <Paper className={classes.root}>
+      <div className={classes.tableWrapper}>
+        <Table stickyHeader aria-label="sticky table">
+          <TableHead>
+            <TableRow>
+              {columns.map(column => (
+                <TableCell
+                  key={column.id}
+                  align={column.align}
+                  style={{ minWidth: column.minWidth }}
+                >
+                  {column.label}
+                </TableCell>
+              ))}
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(row => {
+              return (
+                <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
+                  {columns.map(column => {
+                    const value = row[column.id];
+                    return (
+                      <TableCell key={column.id} align={column.align}>
+                        {column.format && typeof value === 'number' ? column.format(value) : value}
+                      </TableCell>
+                    );
+                  })}
+                </TableRow>
+              );
+            })}
+          </TableBody>
+        </Table>
+      </div>
+      <TablePagination
+        rowsPerPageOptions={[10, 25, 100]}
+        component="div"
+        count={rows.length}
+        rowsPerPage={rowsPerPage}
+        page={page}
+        backIconButtonProps={{
+          'aria-label': 'previous page',
+        }}
+        nextIconButtonProps={{
+          'aria-label': 'next page',
+        }}
+        onChangePage={handleChangePage}
+        onChangeRowsPerPage={handleChangeRowsPerPage}
+      />
+    </Paper>
+  );
+}
+

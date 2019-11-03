@@ -1,24 +1,5 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #09d3ac;
+*{
+  box-sizing: border-box;
 }
 #nav-bar {
   margin-top: 10%;
@@ -28,16 +9,16 @@
   color: white;
   height: 150px;
   padding: 50px;
+  width: 100%;
+  padding-right: 0;
+  padding-left: 0;
+  
 }
+
 .allwrapper {
   background-color: rgb(223, 223, 223);
 }
-.container-fluid {
-  padding-right: 0;
-  padding-left: 0;
-  margin-right: auto;
-  margin-left: auto;
-}
+
 .loginform {
   border: 1px solid rgb(173, 169, 169);
   padding: 20% 10%;
@@ -70,3 +51,4 @@
 .loginbox form {
   margin-top: 30px;
 }
+
