@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import "../App.css";
-import { FaPencilAlt, FaFileInvoiceDollar } from "react-icons/fa";
+import { FaPencilAlt } from "react-icons/fa";
 import Table from "@material-ui/core/Table";
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from "@material-ui/core/styles";
 import {
   TableBody,
   TableCell,
@@ -12,92 +12,253 @@ import {
   TablePagination
 } from "@material-ui/core";
 
-
 const columns = [
-  { id: 'edit', label: 'Edit', minWidth: 170 },
-  { id: 'code', label: 'Code', minWidth: 100 },
+  { id: "edit", label: "Edit", minWidth: 170 },
+  { id: "code", label: "Code", minWidth: 100 },
   {
-    id: 'status',
-    label: 'Status',
+    id: "status",
+    label: "Status",
     minWidth: 170,
-    align: 'right',
-    
+    align: "center"
   },
   {
-    id: 'amount',
-    label: 'Amount',
+    id: "amount",
+    label: "Amount",
     minWidth: 170,
-    align: 'right',
-    
+    align: "center"
   },
   {
-    id: 'payment',
-    label: 'Payment',
+    id: "payment",
+    label: "Payment",
     minWidth: 170,
-    align: 'right',
-    
+    align: "center"
   },
   {
-    id: 'shipping',
-    label: 'Shipping',
+    id: "shipping",
+    label: "Shipping",
     minWidth: 170,
-    align: 'right',
-    
+    align: "center"
   },
   {
-    id: 'customer',
-    label: 'Customer',
+    id: "customer",
+    label: "Customer",
     minWidth: 170,
-    align: 'right',
-    
+    align: "center"
   },
   {
-    id: 'phone',
-    label: 'Phone',
+    id: "phone",
+    label: "Phone",
     minWidth: 170,
-    align: 'right',
-    
+    align: "center"
   },
   {
-    id: 'submitted',
-    label: 'Submitted',
+    id: "submitted",
+    label: "Submitted",
     minWidth: 170,
-    align: 'right',
-    
-  },
+    align: "center"
+  }
 ];
 
-function createData(edit, code, status, amount , payment , shipping, customer , phone,submitted) {
-  
-  return { edit, code, status, amount , payment , shipping, customer , phone,submitted };
+function createData(
+  edit,
+  code,
+  status,
+  amount,
+  payment,
+  shipping,
+  customer,
+  phone,
+  submitted
+) {
+  return {
+    edit,
+    code,
+    status,
+    amount,
+    payment,
+    shipping,
+    customer,
+    phone,
+    submitted
+  };
 }
 
 const rows = [
-  createData(<FaPencilAlt />, '1001', "Paid", "130€","Bank", "Courier", "Μακης Γκουτζελουδης", 6984588656, "3/11/2019"),
-  createData(<FaPencilAlt />, '1002', "Paid","130€", "Bank","Pick Up","Μακης Γκουτζελουδης",6984588656,"3/11/2019"),
-  createData(<FaPencilAlt />, '1003', "Paid","130€", "Bank","Courier","Μακης Γκουτζελουδης",6984588656,"3/11/2019"),
-  createData(<FaPencilAlt />, '1004', "Paid","130€", "Bank","Pick Up","Μακης Γκουτζελουδης",6984588656,"3/11/2019"),
-  createData(<FaPencilAlt />, '1005', "Paid","130€","Bank", "Pick Up","Μακης Γκουτζελουδης",6984588656,"3/11/2019"),
-  createData(<FaPencilAlt />, '1006', "Paid","130€", "Bank","Courier","Μακης Γκουτζελουδης",6984588656,"3/11/2019"),
-  createData(<FaPencilAlt />, '1007', "Paid","130€","Bank", "Pick Up","Μακης Γκουτζελουδης",6984588656,"2/11/2019"),
-  createData(<FaPencilAlt />, '1008', "Paid","130€", "Bank","Courier","Μακης Γκουτζελουδης",6984588656,"2/11/2019"),
-  createData(<FaPencilAlt />, '1009',"Paid", "130€", "Bank","Pick Up","Μακης Γκουτζελουδης",6984588656,"2/11/2019"),
-  createData(<FaPencilAlt />, '1010', "Paid","130€", "Bank","Courier","Μακης Γκουτζελουδης",6984588656,"2/11/2019"),
-  createData(<FaPencilAlt />, '1011', "Paid","130€","Bank", "Pick Up","Μακης Γκουτζελουδης",6984588656,"1/11/2019"),
-  createData(<FaPencilAlt />, '1012',"Paid", "130€","Bank", "Pick Up","Μακης Γκουτζελουδης",6984588656,"1/11/2019"),
-  createData(<FaPencilAlt />, '1013',"Paid", "130€", "Bank","Pick Up","Μακης Γκουτζελουδης",6984588656,"1/11/2019"),
-  createData(<FaPencilAlt />, '1014', "Paid","130€", "Bank","Courier","Μακης Γκουτζελουδης",6984588656,"1/11/2019"),
-  createData(<FaPencilAlt />, '1015',"Paid", "130€","Bank", "Courier","Μακης Γκουτζελουδης",6984588656,"1/11/2019"),
+  createData(
+    <FaPencilAlt />,
+    "1001",
+    "Paid",
+    "130€",
+    "Bank",
+    "Courier",
+    "Μακης Γκουτζελουδης",
+    6984588656,
+    "3/11/2019"
+  ),
+  createData(
+    <FaPencilAlt />,
+    "1002",
+    "Paid",
+    "130€",
+    "Bank",
+    "Pick Up",
+    "Μακης Γκουτζελουδης",
+    6984588656,
+    "3/11/2019"
+  ),
+  createData(
+    <FaPencilAlt />,
+    "1003",
+    "Paid",
+    "130€",
+    "Bank",
+    "Courier",
+    "Μακης Γκουτζελουδης",
+    6984588656,
+    "3/11/2019"
+  ),
+  createData(
+    <FaPencilAlt />,
+    "1004",
+    "Paid",
+    "130€",
+    "Bank",
+    "Pick Up",
+    "Μακης Γκουτζελουδης",
+    6984588656,
+    "3/11/2019"
+  ),
+  createData(
+    <FaPencilAlt />,
+    "1005",
+    "Paid",
+    "130€",
+    "Bank",
+    "Pick Up",
+    "Μακης Γκουτζελουδης",
+    6984588656,
+    "3/11/2019"
+  ),
+  createData(
+    <FaPencilAlt />,
+    "1006",
+    "Paid",
+    "130€",
+    "Bank",
+    "Courier",
+    "Μακης Γκουτζελουδης",
+    6984588656,
+    "3/11/2019"
+  ),
+  createData(
+    <FaPencilAlt />,
+    "1007",
+    "Paid",
+    "130€",
+    "Bank",
+    "Pick Up",
+    "Μακης Γκουτζελουδης",
+    6984588656,
+    "2/11/2019"
+  ),
+  createData(
+    <FaPencilAlt />,
+    "1008",
+    "Paid",
+    "130€",
+    "Bank",
+    "Courier",
+    "Μακης Γκουτζελουδης",
+    6984588656,
+    "2/11/2019"
+  ),
+  createData(
+    <FaPencilAlt />,
+    "1009",
+    "Paid",
+    "130€",
+    "Bank",
+    "Pick Up",
+    "Μακης Γκουτζελουδης",
+    6984588656,
+    "2/11/2019"
+  ),
+  createData(
+    <FaPencilAlt />,
+    "1010",
+    "Paid",
+    "130€",
+    "Bank",
+    "Courier",
+    "Μακης Γκουτζελουδης",
+    6984588656,
+    "2/11/2019"
+  ),
+  createData(
+    <FaPencilAlt />,
+    "1011",
+    "Paid",
+    "130€",
+    "Bank",
+    "Pick Up",
+    "Μακης Γκουτζελουδης",
+    6984588656,
+    "1/11/2019"
+  ),
+  createData(
+    <FaPencilAlt />,
+    "1012",
+    "Paid",
+    "130€",
+    "Bank",
+    "Pick Up",
+    "Μακης Γκουτζελουδης",
+    6984588656,
+    "1/11/2019"
+  ),
+  createData(
+    <FaPencilAlt />,
+    "1013",
+    "Paid",
+    "130€",
+    "Bank",
+    "Pick Up",
+    "Μακης Γκουτζελουδης",
+    6984588656,
+    "1/11/2019"
+  ),
+  createData(
+    <FaPencilAlt />,
+    "1014",
+    "Paid",
+    "130€",
+    "Bank",
+    "Courier",
+    "Μακης Γκουτζελουδης",
+    6984588656,
+    "1/11/2019"
+  ),
+  createData(
+    <FaPencilAlt />,
+    "1015",
+    "Paid",
+    "130€",
+    "Bank",
+    "Courier",
+    "Μακης Γκουτζελουδης",
+    6984588656,
+    "1/11/2019"
+  )
 ];
 
 const useStyles = makeStyles({
   root: {
-    width: '100%',
+    width: "100%"
   },
   tableWrapper: {
-    maxHeight: 440,
-    overflow: 'auto',
-  },
+    maxHeight: "auto",
+    overflow: "auto"
+  }
 });
 
 export default function StickyHeadTable() {
@@ -132,20 +293,24 @@ export default function StickyHeadTable() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(row => {
-              return (
-                <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
-                  {columns.map(column => {
-                    const value = row[column.id];
-                    return (
-                      <TableCell key={column.id} align={column.align}>
-                        {column.format && typeof value === 'number' ? column.format(value) : value}
-                      </TableCell>
-                    );
-                  })}
-                </TableRow>
-              );
-            })}
+            {rows
+              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+              .map(row => {
+                return (
+                  <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
+                    {columns.map(column => {
+                      const value = row[column.id];
+                      return (
+                        <TableCell key={column.id} align={column.align}>
+                          {column.format && typeof value === "number"
+                            ? column.format(value)
+                            : value}
+                        </TableCell>
+                      );
+                    })}
+                  </TableRow>
+                );
+              })}
           </TableBody>
         </Table>
       </div>
@@ -156,10 +321,10 @@ export default function StickyHeadTable() {
         rowsPerPage={rowsPerPage}
         page={page}
         backIconButtonProps={{
-          'aria-label': 'previous page',
+          "aria-label": "previous page"
         }}
         nextIconButtonProps={{
-          'aria-label': 'next page',
+          "aria-label": "next page"
         }}
         onChangePage={handleChangePage}
         onChangeRowsPerPage={handleChangeRowsPerPage}
@@ -167,4 +332,3 @@ export default function StickyHeadTable() {
     </Paper>
   );
 }
-

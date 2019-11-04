@@ -1,68 +1,179 @@
 import React, { Component } from "react";
-import image from "../images/1.jpg";
-import NewProduct from "./NewProduct";
+import Image from "../images/1.jpg";
 import { IoIosKeypad } from "react-icons/io";
+import { FaPencilAlt } from "react-icons/fa";
 import Table from "@material-ui/core/Table";
+import { makeStyles } from "@material-ui/core/styles";
+import "../App.css";
 import {
   TableBody,
   TableCell,
   TableHead,
   TableRow,
-  Paper
+  Paper,
+  TablePagination
 } from "@material-ui/core";
 
+const columns = [
+  { id: "edit", label: "Edit", minWidth: 170 },
+  { id: "code", label: "Code", minWidth: 100 },
+  {
+    id: "sku",
+    label: "SKU",
+    minWidth: 170,
+    align: "center"
+  },
+  {
+    id: "model",
+    label: "Model",
+    minWidth: 170,
+    align: "center"
+  },
+  {
+    id: "manufacturer",
+    label: "Manufacturer",
+    minWidth: 170,
+    align: "center"
+  },
+  {
+    id: "photo",
+    label: "Photo",
+    minWidth: 170,
+    align: "center",
+    
+  }
+];
 
-export default class Products extends Component {
-  render() {
-    const photostyle = {
-      height: "70px",
-      width: "auto",
-      display: "block",
-      margin: "0 auto"
-    };
+function createData(edit, code, sku, model, manufacturer, photo) {
+  return {
+    edit,
+    code,
+    sku,
+    model,
+    manufacturer,
+    photo
+  };
+}
 
-    return (
-      <div>
-        <h1>
-          <IoIosKeypad />
-          Products
-        </h1>
+const rows = [
+  createData(
+    <FaPencilAlt />,
+    "GPU1001",
+    "112233",
+    "GTX 1080 TI Gaming",
+    "MSI",
+    <img src={Image} className="productimg"/>
+  ),
+  createData(
+    <FaPencilAlt />,
+    "GPU1001",
+    "112233",
+    "GTX 1080 TI Gaming",
+    "MSI",
+    <img src={Image} className="productimg"/>
+  ),
+  createData(
+    <FaPencilAlt />,
+    "GPU1001",
+    "112233",
+    "GTX 1080 TI Gaming",
+    "MSI",
+    <img src={Image} className="productimg"/>
+  ),
+  createData(
+    <FaPencilAlt />,
+    "GPU1001",
+    "112233",
+    "GTX 1080 TI Gaming",
+    "MSI",
+    <img src={Image} className="productimg"/>
+  )
+];
 
-        <Paper>
-          <Table aria-label="simple table">
-            <TableHead>
-              <TableRow>
-                <TableCell align="center">#</TableCell>
-                <TableCell align="center">SKU</TableCell>
-                <TableCell align="center">Model</TableCell>
-                <TableCell align="center">Manufacturer</TableCell>
-                <TableCell align="center">Photo</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              <TableRow>
-                <TableCell align="center">1</TableCell>
-                <TableCell align="center">1001</TableCell>
-                <TableCell align="center">GTX 1080 TI</TableCell>
-                <TableCell align="center">MSI</TableCell>
-                <TableCell>
-                  <img src={image} style={photostyle} />
+const useStyles = makeStyles({
+  root: {
+    width: "100%"
+  },
+  tableWrapper: {
+    maxHeight: "auto",
+    overflow: "auto"
+  }
+});
+
+export default function StickyHeadTable() {
+  const classes = useStyles();
+  const [page, setPage] = React.useState(0);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = event => {
+    setRowsPerPage(+event.target.value);
+    setPage(0);
+  };
+  
+  return (
+    <Paper className={classes.root}>
+      <div className={classes.tableWrapper}>
+        <Table stickyHeader aria-label="sticky table">
+          <TableHead>
+            <TableRow>
+              {columns.map(column => (
+                <TableCell
+                  key={column.id}
+                  align={column.align}
+                  style={{ minWidth: column.minWidth }}
+                >
+                  {column.label}
                 </TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell align="center">1</TableCell>
-                <TableCell align="center">1001</TableCell>
-                <TableCell align="center">GTX 1080 TI</TableCell>
-                <TableCell align="center">MSI</TableCell>
-                <TableCell>
-                  <img src={image} style={photostyle} />
-                </TableCell>
-              </TableRow>
-            </TableBody>
-          </Table>
-        </Paper>
+              ))}
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {rows
+              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+              .map(row => {
+                return (
+                  <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
+                    {columns.map(column => {
+                      const value = row[column.id];
+                      return (
+                        <TableCell key={column.id} align={column.align}>
+                          {column.format && typeof value === "number"
+                            ? column.format(value)
+                            : value}
+                        </TableCell>
+                      );
+                    })}
+                  </TableRow>
+                );
+              })}
+          </TableBody>
+        </Table>
+      </div>
+      <TablePagination
+        rowsPerPageOptions={[10, 25, 100]}
+        component="div"
+        count={rows.length}
+        rowsPerPage={rowsPerPage}
+        page={page}
+        backIconButtonProps={{
+          "aria-label": "previous page"
+        }}
+        nextIconButtonProps={{
+          "aria-label": "next page"
+        }}
+        onChangePage={handleChangePage}
+        onChangeRowsPerPage={handleChangeRowsPerPage}
+      />
+    </Paper>
+  );
+}
 
-        {/* <Tabs
+{
+  /* <Tabs
           variant="pills"
           defaultActiveKey="Products"
           id="uncontrolled-tab-example"
@@ -112,8 +223,5 @@ export default class Products extends Component {
           <Tab eventKey="NewProduct" title="+New Product">
             <NewProduct />
           </Tab>
-        </Tabs> */}
-      </div>
-    );
-  }
+        </Tabs> */
 }
