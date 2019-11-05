@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import "../App.css";
 import { FaPencilAlt } from "react-icons/fa";
 import Table from "@material-ui/core/Table";
@@ -9,8 +9,11 @@ import {
   TableHead,
   TableRow,
   Paper,
-  TablePagination
+  TablePagination,
+  Grid
 } from "@material-ui/core";
+
+
 
 const columns = [
   { id: "edit", label: "Edit", minWidth: 170 },
@@ -276,6 +279,7 @@ export default function StickyHeadTable() {
   };
 
   return (
+    <Grid>
     <Paper className={classes.root}>
       <div className={classes.tableWrapper}>
         <Table stickyHeader aria-label="sticky table">
@@ -315,7 +319,7 @@ export default function StickyHeadTable() {
         </Table>
       </div>
       <TablePagination
-        rowsPerPageOptions={[10, 25, 100]}
+        rowsPerPageOptions={[10]}
         component="div"
         count={rows.length}
         rowsPerPage={rowsPerPage}
@@ -330,5 +334,6 @@ export default function StickyHeadTable() {
         onChangeRowsPerPage={handleChangeRowsPerPage}
       />
     </Paper>
+    </Grid>
   );
 }

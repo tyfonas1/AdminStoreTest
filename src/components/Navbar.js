@@ -7,7 +7,10 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
-import { Grid } from "@material-ui/core";
+import { Grid, Hidden , withWidth } from "@material-ui/core";
+import NewProduct from "./NewProduct";
+import {IoIosAddCircle , IoLogoDropbox , IoIosGrid} from "react-icons/io";
+
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -41,26 +44,28 @@ function a11yProps(index) {
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
-    backgroundColor: theme.palette.background.paper,
-    display: "flex",
-    height: 224
+    backgroundColor: "34495e",
+    display: "flex"
   },
   tabs: {
     borderRight: `1px solid ${theme.palette.divider}`
   }
 }));
 
-export default function VerticalTabs() {
+ function VerticalTabs() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
+  
+  
   return (
     <div className={classes.root}>
-      <Grid item xs={3} lg={1} md={2}>
+      <Hidden only="xs">
+      <Grid item lg={1} md={2}>
+      
         <Tabs
           orientation="vertical"
           variant="scrollable"
@@ -69,10 +74,33 @@ export default function VerticalTabs() {
           aria-label="Vertical tabs example"
           className={classes.tabs}
         >
-          <Tab label="Orders" {...a11yProps(0)} />
+          
+          <Tab label="Orders" {...a11yProps(0)} /> 
           <Tab label="Products" {...a11yProps(1)} />
+          <Tab label="New Product" {...a11yProps(2)} />
+          
         </Tabs>
       </Grid>
+      </Hidden>
+      <Hidden smUp>
+      <Grid item xs={2}>
+      
+        <Tabs
+          orientation="vertical"
+          variant="scrollable"
+          value={value}
+          onChange={handleChange}
+          aria-label="Vertical tabs example"
+          className={classes.tabs}
+        >
+          
+          <Tab label={<IoIosGrid/>} {...a11yProps(0)} /> 
+          <Tab label={<IoLogoDropbox/>} {...a11yProps(1)} />
+          <Tab label={<IoIosAddCircle />} {...a11yProps(2)} />
+          
+        </Tabs>
+      </Grid>
+      </Hidden>
       <Grid item xs={9} lg="11" md="10">
         <TabPanel value={value} index={0}>
           <Orders />
@@ -80,7 +108,14 @@ export default function VerticalTabs() {
         <TabPanel value={value} index={1}>
           <Products />
         </TabPanel>
+        <TabPanel value={value} index={2}>
+          <NewProduct />
+        </TabPanel>
       </Grid>
     </div>
   );
 }
+export default withWidth()(VerticalTabs);
+
+
+          

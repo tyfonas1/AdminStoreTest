@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar.js";
+import Footer from "./components/Footer.js";
 import Grid from "@material-ui/core/Grid";
 export default class Admin extends Component {
   render() {
@@ -11,6 +12,9 @@ export default class Admin extends Component {
         </Grid>
         <Grid item xs={12}>
           <Navbar />
+        </Grid>
+        <Grid item xs={12}>
+          <Footer />
         </Grid>
       </Grid>
     );

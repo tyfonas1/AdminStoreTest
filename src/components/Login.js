@@ -30,13 +30,13 @@ export default class Login extends Component {
   };
 
   render() {
-    if (this.state.authentication == true) {
+    if (this.state.authentication === true) {
       return <Admin />;
     } else {
       return (
         <div className="loginbox">
           <div className="loginform">
-            <img src={LoginImage} className="loginimage" />
+            <img src={LoginImage} alt="Login" className="loginimage" />
             <h3>Log In</h3>
             <Form onSubmit={this.handleSubmit}>
               <Form.Group controlId="Username">

@@ -1,28 +1,39 @@
-import React, { Component } from "react";
-import { Form, Button } from "react-bootstrap";
-export default class NewProduct extends Component {
-  render() {
+import React from "react";
+import {TextField} from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+const useStyles = makeStyles(theme => ({
+  container: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+  textField: {
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
+    width: 200,
+  },
+}));
+
+export default function NewProduct() {
+  
+  const classes = useStyles();
+    
     return (
+      <form className={classes.container} noValidate autoComplete="off">
       <div>
-        <h5>New Product</h5>
-        <Form>
-          <Form.Group controlId="Title">
-            <Form.Label>Title</Form.Label>
-            <Form.Control type="text" placeholder="Enter Products Title" />
-          </Form.Group>
-          <Form.Group controlId="SKUNumber">
-            <Form.Label>SKU Number</Form.Label>
-            <Form.Control type="number" placeholder="Enter SKU Number" />
-          </Form.Group>
-          <Form.Group controlId="Model">
-            <Form.Label>Model</Form.Label>
-            <Form.Control type="text" placeholder="Enter Products Model" />
-          </Form.Group>
-          <Button variant="primary" type="submit">
-            Submit
-          </Button>
-        </Form>
+        
+        
+        <TextField
+          id="code"
+          label="Code"
+          className={classes.textField}
+          type="text"
+          
+          margin="normal"
+          variant="outlined"
+        />
+        
       </div>
+      </form>
     );
   }
-}
+

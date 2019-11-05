@@ -1,6 +1,5 @@
-import React, { Component } from "react";
+import React from "react";
 import Image from "../images/1.jpg";
-import { IoIosKeypad } from "react-icons/io";
 import { FaPencilAlt } from "react-icons/fa";
 import Table from "@material-ui/core/Table";
 import { makeStyles } from "@material-ui/core/styles";
@@ -39,8 +38,7 @@ const columns = [
     id: "photo",
     label: "Photo",
     minWidth: 170,
-    align: "center",
-    
+    align: "center"
   }
 ];
 
@@ -62,7 +60,7 @@ const rows = [
     "112233",
     "GTX 1080 TI Gaming",
     "MSI",
-    <img src={Image} className="productimg"/>
+    <img src={Image} alt="msi gtx 1080 ti" className="productimg" />
   ),
   createData(
     <FaPencilAlt />,
@@ -70,7 +68,7 @@ const rows = [
     "112233",
     "GTX 1080 TI Gaming",
     "MSI",
-    <img src={Image} className="productimg"/>
+    <img src={Image} alt="msi gtx 1080 ti" className="productimg" />
   ),
   createData(
     <FaPencilAlt />,
@@ -78,7 +76,7 @@ const rows = [
     "112233",
     "GTX 1080 TI Gaming",
     "MSI",
-    <img src={Image} className="productimg"/>
+    <img src={Image} alt="msi gtx 1080 ti" className="productimg" />
   ),
   createData(
     <FaPencilAlt />,
@@ -86,7 +84,7 @@ const rows = [
     "112233",
     "GTX 1080 TI Gaming",
     "MSI",
-    <img src={Image} className="productimg"/>
+    <img src={Image} alt="msi gtx 1080 ti" className="productimg" />
   )
 ];
 
@@ -113,7 +111,7 @@ export default function StickyHeadTable() {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
-  
+
   return (
     <Paper className={classes.root}>
       <div className={classes.tableWrapper}>
@@ -170,58 +168,4 @@ export default function StickyHeadTable() {
       />
     </Paper>
   );
-}
-
-{
-  /* <Tabs
-          variant="pills"
-          defaultActiveKey="Products"
-          id="uncontrolled-tab-example"
-        >
-          <Tab eventKey="Products" title="Products">
-            <Table striped bordered hover>
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>SKU</th>
-                  <th>Model</th>
-                  <th>Manufacturer</th>
-                  <th>Photo</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>1001</td>
-                  <td>GTX 1080 TI</td>
-                  <td>MSI</td>
-                  <td>
-                    <img src={image} style={photostyle} />
-                  </td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>1002</td>
-                  <td>GTX 1080 TI OC</td>
-                  <td>Gigabyte</td>
-                  <td>
-                    <img src={image} style={photostyle} />
-                  </td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>1003</td>
-                  <td>GTX 1070 TI</td>
-                  <td>MSI</td>
-                  <td>
-                    <img src={image} style={photostyle} />
-                  </td>
-                </tr>
-              </tbody>
-            </Table>
-          </Tab>
-          <Tab eventKey="NewProduct" title="+New Product">
-            <NewProduct />
-          </Tab>
-        </Tabs> */
 }

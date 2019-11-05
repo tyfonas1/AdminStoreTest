@@ -1,15 +1,13 @@
 * {
   box-sizing: border-box;
 }
-#nav-bar {
-  margin-top: 10%;
-}
+
 .header {
   height: 50px;
   width: 100%;
   color: white;
   margin-bottom: 0px;
-  background-color: black;
+  background-color: rgb(5, 9, 48);
   padding-left: 20px;
 }
 
@@ -49,7 +47,18 @@
 .loginbox form {
   margin-top: 30px;
 }
-.productimg{
-  height:100px;
-  width:auto;
+.productimg {
+  height: 100px;
+  width: auto;
+}
+.adminfooter {
+  height: 200px;
+}
+.bgimage{
+  background-image: url("./images/mainbgimage.jpg");
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  min-width: 100%;
+  min-height: 100%;
 }
