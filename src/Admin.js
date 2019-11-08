@@ -6,17 +6,16 @@ import Grid from "@material-ui/core/Grid";
 export default class Admin extends Component {
   render() {
     return (
-      <Grid container>
-        <Grid item xs={12}>
-          <h1 className="header">Admin</h1>
+      <div className="adminbg">
+        <Grid container>
+          <Grid item xs={12}>
+            <h1 className="header">Admin</h1>
+          </Grid>
+          <Grid item xs={12}>
+            <Navbar />
+          </Grid>
         </Grid>
-        <Grid item xs={12}>
-          <Navbar />
-        </Grid>
-        <Grid item xs={12}>
-          <Footer />
-        </Grid>
-      </Grid>
+      </div>
     );
   }
 }

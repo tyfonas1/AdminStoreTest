@@ -10,7 +10,8 @@ import {
   TableRow,
   Paper,
   TablePagination,
-  Grid
+  Grid,
+  Hidden
 } from "@material-ui/core";
 
 const columns = [
@@ -278,6 +279,10 @@ export default function StickyHeadTable() {
 
   return (
     <Grid smUp={12} smDown={12}>
+      <Hidden mdUp>
+        <h2 className="mobiletabname">Orders</h2>
+      </Hidden>
+
       <Paper className={classes.root}>
         <TablePagination
           rowsPerPageOptions={[10]}

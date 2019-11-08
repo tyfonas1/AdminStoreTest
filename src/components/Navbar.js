@@ -62,8 +62,8 @@ function VerticalTabs() {
 
   return (
     <div className={classes.root}>
-      <Hidden only="xs">
-        <Grid item lg={1} md={2}>
+      <Hidden smDown>
+        <Grid item lg={2} md={2} xl={1}>
           <Tabs
             orientation="vertical"
             variant="scrollable"
@@ -77,19 +77,19 @@ function VerticalTabs() {
             <Tab label="New Product" {...a11yProps(2)} />
           </Tabs>
         </Grid>
-        <Grid item xs={12} lg="11" md="10">
-        <TabPanel value={value} index={0}>
-          <Orders />
-        </TabPanel>
-        <TabPanel value={value} index={1}>
-          <Products />
-        </TabPanel>
-        <TabPanel value={value} index={2}>
-          <NewProduct />
-        </TabPanel>
-      </Grid>
+        <Grid item xs={12} lg={10} xl={11} md={10}>
+          <TabPanel value={value} index={0}>
+            <Orders />
+          </TabPanel>
+          <TabPanel value={value} index={1}>
+            <Products />
+          </TabPanel>
+          <TabPanel value={value} index={2}>
+            <NewProduct />
+          </TabPanel>
+        </Grid>
       </Hidden>
-      <Hidden smUp>
+      <Hidden mdUp>
         <Grid item xs={12}>
           <AppBar position="static">
             <Tabs
@@ -113,7 +113,6 @@ function VerticalTabs() {
           </TabPanel>
         </Grid>
       </Hidden>
-      
     </div>
   );
 }

@@ -54,11 +54,22 @@
 .adminfooter {
   height: 200px;
 }
-.bgimage{
+.bgimage {
   background-image: url("./images/mainbgimage.jpg");
-  position: fixed; 
-  top: 0; 
-  left: 0; 
+  position: fixed;
+  top: 0;
+  left: 0;
   min-width: 100%;
   min-height: 100%;
+}
+.adminbg {
+  background-color: rgb(224, 221, 221);
+
+  width: 100%;
+  height: 100%;
+}
+.mobiletabname {
+  text-align: center;
+
+  color: rgb(58, 58, 207);
 }
