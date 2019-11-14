@@ -1,24 +1,35 @@
 import React, { Component } from "react";
 import { Grid } from "@material-ui/core";
 import "../App.css";
+import Logo from "../images/logo.png";
+import { TextField } from "@material-ui/core";
+import Body from "./Body";
 export default class Header extends Component {
   render() {
-    let date = new Date().getDate();
-    let month = new Date().getMonth() + 1;
-    let year = new Date().getFullYear();
-
     return (
-      <div className="header">
-        <Grid container spacing={5} maxwidth={1}>
-          <Grid item xs={9}>
-            <h1>Admin panel</h1>
+      <div className="wrapper">
+        <div className="header">
+          <Grid container spacing={0} alignItems="center" justify="center">
+            <Grid item xs={6} md={9} lg={9}>
+              <img src={Logo} className="logoimg" />
+            </Grid>
+            <Grid item xs={6} md={3} lg={3}>
+              <form className="searchfield">
+                <TextField
+                  id="standard-search"
+                  label="Search field"
+                  type="search"
+                  margin="normal"
+                />
+              </form>
+            </Grid>
           </Grid>
-          <Grid item xs={3}>
-            <h3>
-              {date}/{month}/{year}
-            </h3>
+        </div>
+        <div className="body">
+          <Grid item xs={12}>
+            <Body />
           </Grid>
-        </Grid>
+        </div>
       </div>
     );
   }

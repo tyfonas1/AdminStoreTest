@@ -1,4 +1,5 @@
 import React from "react";
+import "../App.css";
 import { TextField, Button, Hidden, Paper, Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles(theme => ({
@@ -6,7 +7,6 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     flexWrap: "wrap",
     textAlign: "center",
-    display: "inline-block",
     width: "100%"
   },
   paper: {
@@ -68,18 +68,14 @@ export default function NewProduct() {
                 />
               </Grid>
               <Grid lg={12}>
-                <input
-                  accept="image/*"
-                  className={classes.textField}
-                  type="file"
-                />
+                <input accept="image/*" className="inputfile" type="file" />
                 <label htmlFor="raised-button-file">
                   <Button
                     variant="raised"
                     component="span"
                     className={classes.button}
                   >
-                    Upload
+                    Upload Image
                   </Button>
                 </label>
               </Grid>

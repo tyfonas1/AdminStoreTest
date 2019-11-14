@@ -9,7 +9,7 @@ export default class Admin extends Component {
       <div className="adminbg">
         <Grid container>
           <Grid item xs={12}>
-            <h1 className="header">Admin</h1>
+            <h1 className="adminheader">Admin</h1>
           </Grid>
           <Grid item xs={12}>
             <Navbar />
