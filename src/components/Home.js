@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "../App.css";
 import Header from "./Header";
+import Body from "./Body";
 import { Grid, Container } from "@material-ui/core";
 export default class Home extends Component {
   render() {
@@ -9,7 +10,18 @@ export default class Home extends Component {
         <Container maxWidth="lg">
           <Header />
         </Container>
-      </div>
+
+        <div className="body">
+          <Container maxWidth="lg">
+          <Grid item xs={12}>
+            <Body />
+          </Grid>
+          <Grid>
+            
+          </Grid>
+          </Container>
+        </div>
+        </div>
     );
   }
 }

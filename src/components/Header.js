@@ -3,10 +3,11 @@ import { Grid } from "@material-ui/core";
 import "../App.css";
 import Logo from "../images/logo.png";
 import { TextField } from "@material-ui/core";
-import Body from "./Body";
 export default class Header extends Component {
   render() {
+    
     return (
+      
       <div className="wrapper">
         <div className="header">
           <Grid container spacing={0} alignItems="center" justify="center">
@@ -20,16 +21,18 @@ export default class Header extends Component {
                   label="Search field"
                   type="search"
                   margin="normal"
+                  color="white"
+                  InputProps={{
+                    style: {
+                        color: "white"
+                    }
+                }}
                 />
               </form>
             </Grid>
           </Grid>
         </div>
-        <div className="body">
-          <Grid item xs={12}>
-            <Body />
-          </Grid>
-        </div>
+        
       </div>
     );
   }
