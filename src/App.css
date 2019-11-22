@@ -132,3 +132,7 @@
   color: rgb(255, 215, 0);
   transform: scale(1.2);
 }
+.itemimg{
+  height: 40px;
+  width:40px;
+}
